@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_23_112258) do
+ActiveRecord::Schema.define(version: 2022_11_23_112716) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 2022_11_23_112258) do
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
+  create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.text "content", null: false
+    t.integer "type_id", null: false
+    t.string "heterogeneous"
+    t.bigint "user_id", null: false
+    t.bigint "collection_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collection_id"], name: "index_trades_on_collection_id"
+    t.index ["user_id"], name: "index_trades_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -62,4 +74,6 @@ ActiveRecord::Schema.define(version: 2022_11_23_112258) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "collections", "users"
+  add_foreign_key "trades", "collections"
+  add_foreign_key "trades", "users"
 end
