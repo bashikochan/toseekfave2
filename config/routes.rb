@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'collections#index'
 
-  resources :collections
   resources :users, only: [:show]
+  resources :collections
+  resources :trades
 
 end
