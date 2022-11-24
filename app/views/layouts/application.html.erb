@@ -16,6 +16,15 @@
           <div class="nav__left">
             <%= link_to image_tag("logo2.png", class: :logo), root_path %>
           </div>
+          <div class="nav__text">
+          <br>Hello!STAY!<br>
+          カムバお疲れ様です！トレカコレクションとトレードの場としてご利用ください。<br>
+          
+          <br><div class="nav__attention">※このサイトは個人が管理・運営する非公式サイトです。<br>
+          試作途中なのでデータ保存の責任は負えません。<br>
+          トラブルが生じた際も管理人は一切の責任を負えませんのでご了承ください。</div>
+          </div>
+
           <%# ログインしているときは以下を表示するようにしましょう %>
           <% if user_signed_in? %>
             <div class="nav__right">

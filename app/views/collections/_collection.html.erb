@@ -21,6 +21,7 @@
     </tr>
     </table>
     <div class="card__manage">
+      <%= link_to "交換", new_collection_trade_path(collection), class: :collection_trade_btn %>
       <%= link_to "編集", edit_collection_path(collection), method: :get, class: :collection__btn %>
       <%= link_to "削除", collection_path(collection), method: :delete, class: :collection__btn %>
     </div>

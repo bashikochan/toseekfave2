@@ -19,7 +19,9 @@ class Album < ActiveHash::Base
     { id: 16, name: 'Christmas EveL' },
     { id: 17, name: 'ODDINARY' },
     { id: 18, name: 'CIRCUS' },
-    { id: 19, name: 'MAXIDENT' }
+    { id: 19, name: 'MAXIDENT' },
+    { id: 20, name: 'その他' }
+
   ]
 
   include ActiveHash::Associations

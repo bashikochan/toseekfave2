@@ -1,0 +1,50 @@
+<div class="card">
+  <tbody>
+    <%= link_to image_tag(collection.image, class: :card__img), collections_path(collection.id) %>   
+    <br>
+    <table class="table_card"> 
+    <tr>
+      <th class="card__col1">メンバー</th>
+      <td class="card__col2"><%= collection.favemember.name %></td>
+    </tr>
+    <tr>
+      <th class="card__col1">アルバム名</th>
+      <td class="card__col2"><%= collection.album.name %></td>
+    </tr>
+    <tr>
+      <th class="card__col1">店舗</th>
+      <td class="card__col2"><%= collection.version.name %></td>
+    </tr>
+    <tr>
+      <th class="card__col1">その他</th>
+      <td class="card__col2"><%= collection.others %></td>
+    </tr>
+    </table>
+    
+    <tbody>
+    <br>
+    <table class="table_card"> 
+    <tr>
+      <th class="card__col1">交換内容</th>
+      <td class="card__col2"><%= trade.content %></td>
+    </tr>
+    <tr>
+      <th class="card__col1">メンバー</th>
+      <td class="card__col2"><%= trade.favemember.name %></td>
+    </tr>
+    <tr>
+      <th class="card__col1">同種or異種</th>
+      <td class="card__col2"><%= trade.type.name %></td>
+    </tr>
+    <tr>
+      <th class="card__col1">異種の場合</th>
+      <td class="card__col2"><%= trade.heterogeneous %></td>
+    </tr>
+    </table>
+    <div class="card__manage">
+      <%= link_to "編集", edit_collection_trade_path(@trade), method: :get, class: :collection__btn %>
+      <%= link_to "削除", collectin_trade_path(@trade), method: :delete, class: :collection__btn %>
+    </div>
+    </tbody>
+  </tbody>
+</div>

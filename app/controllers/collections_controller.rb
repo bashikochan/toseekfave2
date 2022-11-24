@@ -1,6 +1,7 @@
 class CollectionsController < ApplicationController
   def index
     @collections = Collection.all
+    @trade = Trade.find_by(id: params[:id])
   end
 
   def new
@@ -18,7 +19,7 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params[:id])
-    @user = @collection.user
+    @user = @collection.user 
   end
 
   def edit

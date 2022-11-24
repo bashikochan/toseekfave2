@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2022_11_23_112716) do
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "content", null: false
+    t.integer "favemember_id", null: false
     t.integer "type_id", null: false
     t.string "heterogeneous"
     t.bigint "user_id", null: false

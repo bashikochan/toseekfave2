@@ -2,6 +2,7 @@ class CreateTrades < ActiveRecord::Migration[6.0]
   def change
     create_table :trades do |t|
       t.text       :content, null: false
+      t.integer    :favemember_id, null: false
       t.integer    :type_id, null: false
       t.string     :heterogeneous
       t.references :user, null: false, foreign_key: true

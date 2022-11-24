@@ -5,6 +5,7 @@ class Collection < ApplicationRecord
   belongs_to :favemember
   belongs_to :album
   belongs_to :version
+  has_one :trade
 
   validates :image, presence: true
   validates :favemember_id, numericality: { other_than: 1, message: "can't be blank" }

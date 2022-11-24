@@ -1,0 +1,30 @@
+
+<%= image_tag @collection.image, class: 'card__img' %>
+
+
+<%= form_with model: @trade, url: collection_trades_path(@collection), method: :post, local: true do |f| %>
+
+  <div class="weight-bold-text">
+    <%= f.label :content, "交換内容" %><br />
+    <%= f.text_area :content, size: "40x5", class:"trade-text", id:"trade-content", placeholder:"交換内容のメッセージ（必須 20文字以上100文字まで）希望、注意点など 例）郵送希望です。硬質ケース＋水濡れ防止袋入れ。" ,rows:"20" ,maxlength:"100" %>
+  </div>
+
+  <div class="weight-bold-text">
+    <%= f.label :favemember_id, "求めるメンバー" %><br />
+    <%= f.collection_select(:favemember_id, Favemember.all, :id, :name, {}, {class:"select-box", id:"trade-favemember"}) %>
+  </div>
+
+  <div class="weight-bold-text">
+    <%= f.label :type_id, "同種or異種" %><br />
+    <%= f.collection_select(:type_id, Type.all, :id, :name, {}, {class:"select-box", id:"trade-type"}) %>
+  </div>
+
+  <div class="weight-bold-text">
+    <%= f.label :heterogeneous, "異種の場合" %><br />
+    <%= f.text_area :heterogeneous, size: "30x3", class:"trade-hete", id:"trade-content", placeholder:"異種希望カード（必須 50文字まで）" ,rows:"5" ,maxlength:"50" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
